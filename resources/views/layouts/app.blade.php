@@ -14,21 +14,14 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
-
-    <!-- Theme style -->
-    <link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
+  
 
     @livewireStyles
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
 
-    <script src="assets/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="assets/dist/js/adminlte.min.js"></script>
+    @yield('js-script')
 
 </head>
 
@@ -37,7 +30,7 @@
 
     <div class="min-h-screen bg-gray-100">
 
-        @livewire('dashboard-nav')
+      
 
         <!-- Page Heading -->
         <!-- @if (isset($header))

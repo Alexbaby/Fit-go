@@ -20,9 +20,11 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard.index');
 })->name('dashboard');
 
-Route::get('/course', Courses::class);
-Route::post('/course.create', Courses::class)->name('course.create');
+Route::get('course', 'App\Http\Controllers\CourseController@index')->name('course');
+
+Route::get('user', 'App\Http\Controllers\CustomerController@index')->name('user');
+
 

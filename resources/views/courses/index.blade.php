@@ -1,4 +1,7 @@
+@extends('layouts.main')
+
 @section('content')
+
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -56,25 +59,45 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <form action="{{ route ('course.create')}}" method="POST">
-                @csrf
+
+            <form  enctype="multipart/form-data" id="form">
+
+                <div class="modal-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Course Name</label>
-                        <input type="text" name="coursename" class="form-control" id="courseid" aria-describedby="emailHelp" placeholder="Course Name">
+                        <input type="text" name="course_name" id="course_name" class="form-control" id="courseid" aria-describedby="emailHelp" placeholder="Course Name">
+
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Course Duration</label>
-                        <input type="text" name="courseduration" class="form-control" id="coursedid" placeholder="Course Duration">
+                        <input type="text" name="course_duration" id="course_duration" class="form-control" id="coursedid" placeholder="Course Duration">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Course Fee</label>
-                        <input type="text" name="coursefee" class="form-control" id="coursefeeid" placeholder="Course Fee">
+                        <input type="text" name="course_duration" class="form-control" id="course_duration" placeholder="Course Fee">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary close-modal" id="save">Save changes</button>
+                </div>
+
+            </form>
         </div>
     </div>
 </div>
+
+@endsection
+
+@section('scripts')
+<script src="{{ asset ('js/jquery-3.3.1.min.js' )}}" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready ( function()   {
+ 
+    $('#save').click(function (e)   {
+        console.log('da');
+      
+    })
+})
+</script>
 @endsection

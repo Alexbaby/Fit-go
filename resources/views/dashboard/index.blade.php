@@ -1,3 +1,6 @@
+@extends('layouts.main')
+
+@section('content')
 <table class="table">
     <thead>
         <tr>
@@ -28,3 +31,4 @@
         </tr>
     </tbody>
 </table>
+@endSection

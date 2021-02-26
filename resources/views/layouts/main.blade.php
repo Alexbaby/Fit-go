@@ -129,11 +129,11 @@
 
 <!-- Scripts -->
 
+<script src="{{ asset ('js/jquery-3.3.1.min.js' )}}" type="text/javascript"></script>
 <script src="assets/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="assets/dist/js/adminlte.min.js"></script>
-<script src="{{ asset ('js/jquery-3.3.1.min.js' )}}" type="text/javascript"></script>
 
 @yield('scripts')

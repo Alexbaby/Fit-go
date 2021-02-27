@@ -29,6 +29,8 @@ Route::post('course/create', 'App\Http\Controllers\CourseController@createCourse
 
 Route::delete('course/remove/{id}','App\Http\Controllers\CourseController@remove')->name('course/remove');
 
+Route::get('course/edit/{id}','App\Http\Controllers\CourseController@show')->name('course/edit');
+
 Route::get('user', 'App\Http\Controllers\CustomerController@index')->name('user');
 
 

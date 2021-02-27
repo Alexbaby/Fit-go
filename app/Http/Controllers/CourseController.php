@@ -14,7 +14,7 @@ class CourseController extends Controller
     public function index()
     {
         $courses = courses::all();
-        return view('courses.index',compact('courses'));
+        return view('courses.index', compact('courses'));
     }
 
     public function createCourse(Request $request)
@@ -36,11 +36,18 @@ class CourseController extends Controller
         $courses->course_fee = $request->input('course_fee');
 
         $courses->save($request->all());
-       
-      return Redirect('course')->with('message','updated ');
+
+        return Redirect('course')->with('message', 'updated ');
     }
 
-    public function remove($id)    {
+    public function show($id)
+    {
+        $course = courses::find($id);
+        return view('customer.edit', compact('course'));
+    }
+
+    public function remove($id)
+    {
 
         courses::find($id)->delete();
         return redirect('course');

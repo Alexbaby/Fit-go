@@ -48,9 +48,10 @@
                                     <td>{{$course->course_duration}}</td>
                                     <td>{{$course->course_fee}}</td>
                                     <td>
-                                        <form action="{{ route('course/remove',$course->id)}}" method="post">
+                                        <form action="{{ route('course/remove',$course->id) }}" method="post">
                                             @csrf
-                                            <a href="#"><i class="fas fa-edit"></i></a>&nbsp;
+                                            <a href="{{ route('course/edit',$course->id) }}" data-toggle="modal" data-target="#updateid"><i class="fas fa-edit"></i></a>&nbsp;
+
                                             <button type="submit"><i class="fas fa-trash"></i></button>
                                             @method('DELETE')
 
@@ -71,7 +72,6 @@
 <form enctype="multipart/form-data" id="courseForm" method="POST" action="{{ url ('course/create')}}">
     @csrf
 
-
     <div class="modal fade" id="addcourse" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -83,12 +83,10 @@
                 </div>
                 <div class="alert-danger"></div>
 
-
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Course Name</label>
                         <input type="text" name="course_name" id="course_name" class="form-control" aria-describedby="emailHelp" placeholder="Course Name">
-
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Course Duration</label>
@@ -101,7 +99,32 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary close-modal" id="ajaxSubmit">Save changes</button>
+                    <button type="submit" class="btn btn-primary close-modal" id="ajaxSubmit">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<form enctype="multipart/form-data" id="courseForm" method="POST" action="{{ url ('course/create')}}">
+    @csrf
+
+    <div class="modal fade" id="updateid" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Update Course</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary close-modal" id="#">Add</button>
                 </div>
             </div>
         </div>
@@ -112,8 +135,8 @@
 
 @section('scripts')
 
-<!-- <script src="{{ asset ('js/addcourse.js')}}"></script> -->
-<script>
+<script src="{{ asset ('js/addcourse.js')}}"></script>
+<!-- <script>
     $(document).ready(function() {
         $('#ajaxSubmit').click(function(e) {
             e.preventDefault();
@@ -138,7 +161,7 @@
 
                         jQuery.each(result.errors, function(key, value) {
                             $('.alert-danger').show();
-                            $('.alert-danger').append('<li>' + value + '</li>');
+                            $('.alert-danger').append('<p>' + value + '</p>');
                         });
                     } else {
                         console.log('inside this ');
@@ -152,5 +175,5 @@
             });
         });
     });
-</script>
+</script> -->
 @endsection

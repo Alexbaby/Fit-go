@@ -22,6 +22,7 @@
 </head>
 
 <body>
+<input type="hidden" name="BASE_URL" id="BASE_URL" value="{{ URL::to('/') }}">
     <div class="wrapper">
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <ul class="navbar-nav ml-auto">
@@ -131,9 +132,8 @@
 
 <script src="{{ asset ('js/jquery-3.3.1.min.js' )}}" type="text/javascript"></script>
 <script src="assets/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="assets/dist/js/adminlte.min.js"></script>
-
+<!-- Bootstrap 4 -->
+<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 @yield('scripts')
